@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Data Analysis{% endblock %}
+
+{% block content %}
+    <h1>Data Analysis</h1>
+    <p>This page will display various data analysis insights.</p>
+    
+    <h2>Sentiment Distribution</h2>
+    <img src="{{ url_for('static', filename='images/sentiment_distribution.png') }}" alt="Sentiment Distribution Chart">
+
+    <h2>Product Category Popularity</h2>
+    <img src="{{ url_for('static', filename='images/category_popularity.png') }}" alt="Product Category Popularity Chart">
+
+    <h2>User Activity Over Time</h2>
+    <img src="{{ url_for('static', filename='images/user_activity.png') }}" alt="User Activity Over Time Chart">
+
+    {# You can add more analysis results here as needed #}
+
+{% endblock %}
