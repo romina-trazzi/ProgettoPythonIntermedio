@@ -1,14 +1,10 @@
- * Serving Flask app 'main'
- * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment.
-Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
+
 ## Funzionalità Principali
 
 - **Analisi del Sentiment**: Analizza il sentiment di recensioni di prodotti (positivo, negativo, neutro).
 - **Sistema di Raccomandazione**: Fornisce raccomandazioni di prodotti basate sulle interazioni degli utenti.
 - **Analisi dei Dati**: Visualizza statistiche e insight sui dati di prodotti, utenti e recensioni.
+
 
 ## Installazione
 
@@ -39,14 +35,15 @@ Press CTRL+C to quit
 
 ## Esecuzione dell'Applicazione
 
-Per avviare l'applicazione Flask:
+Per avviare l'applicazione FastAPI:
 
 ```bash
 # Assicurati di essere nell'ambiente virtuale attivato
-flask run
+uvicorn app.main:app --reload
 ```
 
-L'applicazione sarà disponibile all'indirizzo `http://127.0.0.1:5000/` (o porta simile).
+L'applicazione sarà disponibile all'indirizzo `http://127.0.0.1:8000/`.
+La documentazione interattiva è accessibile su `/docs` (Swagger UI) e `/redoc` (ReDoc).
 
 ## Esecuzione dei Test
 
@@ -57,16 +54,17 @@ Per eseguire i test unitari:
 python -m unittest discover tests
 ```
 
+
 ## Tecnologie Utilizzate
 
--   Python
--   Flask
--   SQLAlchemy
--   scikit-learn
--   NLTK
--   Pandas
--   NumPy
--   HTML/CSS/JavaScript
+- Python
+- FastAPI
+- SQLAlchemy
+- scikit-learn
+- NLTK
+- Pandas
+- NumPy
+- HTML/CSS/JavaScript
 
 ## Contribuzione
 
@@ -74,8 +72,41 @@ Sentiti libero di contribuire al progetto. Si prega di seguire le linee guida di
 
 ## Licenza
 
-Questo progetto è rilasciato sotto la licenza MIT. Vedi il file `LICENSE` per maggiori dettagli.# ProgettoPythonIntermedio
+
+Questo progetto è rilasciato sotto la licenza MIT. Vedi il file `LICENSE` per maggiori dettagli.
+
+# ProgettoPythonIntermedio
 
 Questo è un progetto Python intermedio che implementa un sistema di analisi del sentiment e raccomandazione di prodotti, con funzionalità di analisi dei dati.
 
 ## Struttura del Progetto
+
+```
+app/
+    main.py
+    models/
+        product.py
+        purchase.py
+        review.py
+        user.py
+    services/
+        data_service.py
+        recommendation_service.py
+        sentimentt_service.py
+    views/
+        api_routes.py
+        web_routes.py
+    db/
+        init_db.py
+    utils/
+        database.py
+    static/
+        ...
+    templates/
+        ...
+    tests/
+        test_data_analysis.py
+        ...
+Readme.md
+requirements.txt
+```
