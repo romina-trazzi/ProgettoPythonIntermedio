@@ -1,27 +1,55 @@
-from flask import Flask, render_template
-from config import Config
-from app.utilis.database import db
+# main.py
 
-def create_app():
-    app = Flask(__name__)
-    app.config.from_object(Config)
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
-    db.init_app(app)
+# Importa i router
+from app.views.api_routes import (
+    users_router, 
+    products_router, 
+    reviews_router, 
+    recommendations_router, 
+    data_router
+)
+from app.views.web_routes import web_router
 
-    with app.app_context():
-        from app.views.web_routes import web_bp
-        from app.views.api_routes import api_bp
-        app.register_blueprint(web_bp)
-        app.register_blueprint(api_bp)
+# Crea l'istanza FastAPI
+app = FastAPI(
+    title="Sistema di Analisi Sentiment e Raccomandazioni",
+    description="API per analisi del sentiment delle recensioni e sistema di raccomandazione prodotti",
+    version="1.0.0"
+)
 
-        # Import models to ensure they are known to SQLAlchemy
-        from app.models import review, product, user, purchase
+# Configura CORS per permettere richieste da frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In produzione, specifica domini specifici
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-        # Create database tables if they don't exist
-        db.create_all()
+# Monta i file statici (CSS, JS, immagini)
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
-    return app
+# Includi tutti i router
+app.include_router(users_router)
+app.include_router(products_router)
+app.include_router(reviews_router)
+app.include_router(recommendations_router)
+app.include_router(data_router)
+app.include_router(web_router)
 
-if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)
+@app.get("/")
+async def root():
+    """Endpoint di benvenuto principale"""
+    return {
+        "message": "Benvenuto al Sistema di Analisi Sentiment e Raccomandazioni!",
+        "docs": "/docs",
+        "redoc": "/redoc"
+    }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
