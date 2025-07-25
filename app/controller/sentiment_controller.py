@@ -1,8 +1,10 @@
-# app/controllers/sentiment_controller.py
+# app/controller/sentiment_controller.py
+
+from app.controller.user_controller import UserController
 
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from app.utils.database import get_db
+from app.utilis.database import get_db
 from app.models import Review, Product # Importa solo i modelli necessari qui
 from app.services.sentiment_service import SentimentService
 from app.schemas.review_schemas import ReviewCreate, ReviewResponse # Importa gli schemi

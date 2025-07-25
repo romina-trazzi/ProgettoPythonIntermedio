@@ -5,6 +5,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
 # Carica le variabili d'ambiente dal file .env
 from dotenv import load_dotenv
 load_dotenv()

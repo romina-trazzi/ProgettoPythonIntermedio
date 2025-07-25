@@ -5,7 +5,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func # Per timestamp automatico
-from app.utils.database import Base
+from app.utilis.database import Base
 
 class Review(Base):
     __tablename__ = "reviews"  # Nome della tabella nel database

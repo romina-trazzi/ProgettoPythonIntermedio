@@ -1,7 +1,7 @@
 # db/init_db.py
 
 from sqlalchemy.orm import Session
-from app.utils.database import Base, engine, SessionLocal
+from app.utilis.database import Base, engine, SessionLocal
 from app.models import User, Product, Review, Purchase # Importa tutti i modelli
 
 # Per l'hashing delle password

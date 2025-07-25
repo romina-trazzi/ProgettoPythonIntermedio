@@ -6,7 +6,7 @@
 from sqlalchemy import Column, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from app.utils.database import Base
+from app.utilis.database import Base
 
 
 class Purchase(Base):

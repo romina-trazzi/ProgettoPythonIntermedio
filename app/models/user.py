@@ -4,7 +4,7 @@
 # Ogni istanza corrisponde a una riga nella tabella 'users'.
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from app.utils.database import Base
+from app.utilis.database import Base
 
 class User(Base):
     __tablename__ = "users"  # Nome della tabella nel database

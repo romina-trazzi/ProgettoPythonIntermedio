@@ -1,9 +1,10 @@
-# app/controllers/recommendation_controller.py
+# app/controller/recommendation_controller.py
+from app.controller.user_controller import UserController
 
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from app.utils.database import get_db
+from app.utilis.database import get_db
 from app.models.user import User
 from app.services.recommendation_service import RecommendationService
 from app.schemas.product_schemas import ProductResponse # Riutilizzo schema prodotto

@@ -4,7 +4,7 @@
 # Ogni istanza corrisponde a una riga nella tabella 'products'.
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.orm import relationship
-from app.utils.database import Base
+from app.utilis.database import Base
 
 class Product(Base):
     __tablename__ = "products"  # Nome della tabella nel database

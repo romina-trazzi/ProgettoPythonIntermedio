@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from config import Config
+from app.config import Config
 from app.utilis.database import db
 
 def create_app():

@@ -1,5 +1,5 @@
-# app/controllers/data_analysis_controller.py
-
+# app/controller/data_analysis_controller.py
+from app.controller.user_controller import UserController
 from fastapi import Depends
 from app.services.data_service import DataService
 from app.schemas.data_schemas import RandomNumbersResponse # Importa lo schema
