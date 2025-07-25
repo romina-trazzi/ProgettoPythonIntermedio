@@ -1,19 +1,15 @@
 
 # app/models/purchase.py
 
-# Importa i moduli necessari da SQLAlchemy per la definizione del modello
+# Modello ORM che rappresenta un acquisto effettuato da un utente per un prodotto.
+# Ogni istanza corrisponde a una riga nella tabella 'purchases'.
 from sqlalchemy import Column, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.utils.database import Base
 
 
-
 class Purchase(Base):
-    """
-    Modello ORM che rappresenta un acquisto effettuato da un utente per un prodotto.
-    Ogni istanza corrisponde a una riga nella tabella 'purchases'.
-    """
     __tablename__ = "purchases"  # Nome della tabella nel database
 
     # ID univoco dell'acquisto (chiave primaria, autoincrementale)
@@ -28,12 +24,14 @@ class Purchase(Base):
     # Data e ora dell'acquisto (impostata automaticamente al momento della creazione)
     purchase_date = Column(DateTime, server_default=func.now())
 
-    # Relazione ORM con il modello User:
-    # Permette di accedere direttamente all'oggetto utente che ha effettuato l'acquisto tramite 'buyer'.
+    # Relazione ORM con l'utente che ha effettuato l'acquisto
+    # Crea un collegamento tra la tabella 'purchases' e la tabella 'users'.
+    # Permette di accedere direttamente all'oggetto User associato all'acquisto tramite purchase.buyer
     buyer = relationship("User", back_populates="purchases")
 
-    # Relazione ORM con il modello Product:
-    # Permette di accedere direttamente all'oggetto prodotto acquistato tramite 'product_item'.
+    # Relazione ORM con il prodotto acquistato
+    # Crea un collegamento tra la tabella 'purchases' e la tabella 'products'.
+    # Permette di accedere direttamente all'oggetto Product associato all'acquisto tramite purchase.product_item
     product_item = relationship("Product", back_populates="purchases")
 
     def __repr__(self):
