@@ -82,31 +82,38 @@ Questo è un progetto Python intermedio che implementa un sistema di analisi del
 ## Struttura del Progetto
 
 ```
-app/
-    main.py
-    models/
-        product.py
-        purchase.py
-        review.py
-        user.py
-    services/
-        data_service.py
-        recommendation_service.py
-        sentimentt_service.py
-    views/
-        api_routes.py
-        web_routes.py
-    db/
-        init_db.py
-    utils/
-        database.py
-    static/
-        ...
-    templates/
-        ...
-    tests/
-        test_data_analysis.py
-        ...
-Readme.md
-requirements.txt
+ProgettoPythonIntermedio/
+├── .env                               
+├── main.py                             
+├── requirements.txt                    
+├── app/
+│   ├── __init__.py                    
+│   ├── config.py                       
+│   ├── README.md                       
+│   ├── requirements.txt                
+│   ├── controllers/                    
+│   │   ├── __init__.py                 
+│   │   ├── user_controller.py          
+│   │   ├── product_controller.py       
+│   │   ├── data_analysis_controller.py 
+│   │   ├── recommendation_controller.py
+│   │   └── sentiment_controller.py     
+│   ├── schemas/                       
+│   │   ├── __init__.py                 
+│   │   ├── user_schemas.py             
+│   │   ├── product_schemas.py          
+│   │   ├── review_schemas.py           
+│   │   └── data_schemas.py             
+│   ├── services/                       
+│   │   ├── int.py                      
+│   │   ├── sentiment_service.py        
+│   │   ├── recommendation_service.py   
+│   │   └── data_service.py             
+│   ├── models/                         
+│   ├── db/                            
+│   ├── utilis/                        
+│   ├── static/                         
+│   ├── templates/                      
+│   ├── tests/                          
+│   └── views/                          
 ```
