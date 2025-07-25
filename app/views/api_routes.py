@@ -6,6 +6,11 @@ from app.controller.product_controller import ProductController
 from app.controller.sentiment_controller import SentimentController
 from app.controller.recommendation_controller import RecommendationController
 from app.controller.data_analysis_controller import DataAnalysisController
+
+
+from fastapi import APIRouter
+
+users_router = APIRouter()
 user_ctrl = UserController()
 product_ctrl = ProductController()
 sentiment_ctrl = SentimentController()

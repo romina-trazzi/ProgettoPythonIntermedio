@@ -79,3 +79,48 @@ Questo progetto è rilasciato sotto la licenza MIT. Vedi il file `LICENSE` per m
 Questo è un progetto Python intermedio che implementa un sistema di analisi del sentiment e raccomandazione di prodotti, con funzionalità di analisi dei dati.
 
 ## Struttura del Progetto
+
+├── app/
+│   ├── __init__.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── review.py
+│   │   ├── product.py
+│   │   ├── user.py
+│   │   └── purchase.py
+│   ├── controllers/
+│   │   ├── __init__.py
+│   │   ├── sentiment_controller.py
+│   │   ├── recommendation_controller.py
+│   │   └── data_analysis_controller.py
+│   ├── views/
+│   │   ├── __init__.py
+│   │   ├── api_routes.py
+│   │   └── web_routes.py
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── sentiment_service.py
+│   │   ├── recommendation_service.py
+│   │   └── data_service.py
+│   └── utils/
+│       ├── __init__.py
+│       └── database.py
+├── db/
+│   └── init_db.py
+├── templates/
+│   ├── base.html
+│   ├── sentiment.html
+│   ├── recommendations.html
+│   └── analysis.html
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── tests/
+│   ├── test_sentiment.py
+│   ├── test_recommendations.py
+│   └── test_data_analysis.py
+├── requirements.txt
+├── main.py
+├── config.py
+└── README.md
